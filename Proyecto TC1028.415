@@ -1,0 +1,22 @@
+# calcular media aritmética para 10 datos
+
+print("Ingresa los 10 datos numéricos que deseas promediar")
+
+var1= float(input())
+var2= float(input())
+var3= float(input())
+var4= float(input())
+var5= float(input())
+var6= float(input())
+var7= float(input())
+var8= float(input())
+var9= float(input())
+var10= float(input())
+
+sum = var1 + var2 + var3 + var4 + var5
+
+sum2 = sum + var6 + var7 + var8 + var9 + var10
+
+media = sum2 / 10
+
+print("La media es:", "%.3f" % media)
