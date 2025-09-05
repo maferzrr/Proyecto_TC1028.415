@@ -2,21 +2,28 @@
 
 print("Ingresa los 10 datos numéricos que deseas promediar")
 
-var1= float(input())
-var2= float(input())
-var3= float(input())
-var4= float(input())
-var5= float(input())
-var6= float(input())
-var7= float(input())
-var8= float(input())
-var9= float(input())
-var10= float(input())
+# Definir variables
+num1= float(input())
+num2= float(input())
+num3= float(input())
+num4= float(input())
+num5= float(input())
+num6= float(input())
+num7= float(input())
+num8= float(input())
+num9= float(input())
+num10= float(input())
 
-sum = var1 + var2 + var3 + var4 + var5
+# Definir función media
 
-sum2 = sum + var6 + var7 + var8 + var9 + var10
+def media (n1,n2,n3,n4,n5,n6,n7,n8,n9,n10):
+    suma = (n1 + n2 + n3 + n4 + n5
+            + n6 + n7 + n8 + n9 + n10)
+    return suma/10
 
-media = sum2 / 10
+# Llamar a la función media
 
-print("La media es:", "%.3f" % media)
+res = media(num1, num2, num3, num4, num5, num6, num7, num8, num9, num10)
+
+print("La media aritmética de tus datos es:", "%.2f" % res)
+
