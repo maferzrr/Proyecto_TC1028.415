@@ -1,21 +1,24 @@
-# Media Aritmética y Mediana
+# Media Aritmética y Mediana y Moda
 
-# Lista de variables
+# Explicación
 
-print("Ingresa una lista de 10 números para continuar:")
+print("Este programa calcula la media aritmética, mediana y moda de una lista de números")
 
-n1= float(input())
-n2= float(input())
-n3= float(input())
-n4= float(input())
-n5= float(input())
-n6= float(input())
-n7= float(input())
-n8= float(input())
-n9= float(input())
-n0= float(input())
+print("Ingresa todos los números uno por uno. Cuando termines, escribe 'Fin':")
 
-nums = [n1, n2, n3, n4, n5, n6, n7, n8, n9, n0]
+#Lista de variables
+
+nums = []
+
+while True:
+    entrada = input()
+    if entrada.lower() == 'fin':
+        break
+    try:
+        numero = float(entrada)
+        nums.append(numero)
+    except ValueError:
+        print("Por favor, ingresa un número válido.")
 
 # Media Aritmética
 
@@ -34,11 +37,35 @@ def mediana (nums):
     else:
         return ordenados[mitad]
     
+
+# Moda
+
+def moda (nums):
+
+    diccionario = {}
+
+    for n in nums:
+        diccionario[n] = 0
+
+    for n in nums:
+        diccionario[n] = diccionario[n] + 1
+
+    max_valor = nums[0]
+    max_repeticiones = diccionario[max_valor]
+
+    for llave in diccionario:
+        if diccionario[llave] > max_repeticiones:
+            max_repeticiones = diccionario[llave]
+            max_valor = llave
+
+    return max_valor, diccionario
+    
 #Menú opciones
 
 print("Ingresa la opción que deseas realizar:")
 print("1. Calcular media aritmética:")
 print("2. Calcular mediana:")
+print("3. Calcular moda:")
 
 opcion = int(input())
 
@@ -46,11 +73,17 @@ if opcion == 1:
     print("La media aritmética es:", "%.1f" % media(nums))
 elif opcion == 2:
     print("La mediana es:", "%.1f" % mediana(nums))
+elif opcion == 3:
+    moda_resultado, repeticiones = moda(nums)
+    print("La moda es:", moda_resultado)
+    print("¿Quieres saber el número de repeticiones de cada dato? (s/n)")
+    respuesta = input().lower()
+    if respuesta == 's':
+        for numero, rep in repeticiones.items():
+            print(f"El número {numero} se repite {rep} veces.")
+    elif respuesta == 'n':
+        print("De acuerdo, no mostraré las repeticiones.")
+    
 else:
-    print("Opción no valida")
-    
+    print("Porfavor ingresa una opción válida.")
 
-
-
-
-    
