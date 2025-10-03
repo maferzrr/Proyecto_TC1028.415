@@ -1,34 +1,25 @@
 # Media Aritmética y Mediana y Moda
 
-# Explicación
+nums = [] #LISTA VACÍA PARA ALMACENAR LOS NÚMEROS
 
-print("Este programa calcula la media aritmética, mediana y moda de una lista de números")
-
-print("Ingresa todos los números uno por uno. Cuando termines, escribe 'Fin':")
-
-#Lista de variables
-
-nums = []
-
-while True:
-    entrada = input()
-    if entrada.lower() == 'fin':
-        break
+# CICLO WHILE PARA CANTIDAD INDEFINIDA DE DATOS
+entrada = input("Escribe un número o 'fin': ")
+while entrada.lower() != "fin": # Función ".lower()" coloca todos los caracteres en minúscula
     try:
-        numero = float(entrada)
-        nums.append(numero)
-    except ValueError:
-        print("Por favor, ingresa un número válido.")
+        nums.append(float(entrada)) # ".append()" agrega datos al final de la lista
+    except:
+        print("Número inválido.")
+    entrada = input("Escribe un número o 'fin': ") 
 
 # Media Aritmética
 
 def media (nums):
-    return sum(nums) / len(nums)
+    return sum(nums) / len(nums) # "len()" longitud de la lista
 
 # Mediana
 
 def mediana (nums):
-    ordenados = sorted(nums)
+    ordenados = sorted(nums) # "sorted()" acomodar en orden los elementos en la lista
     n = len(ordenados)
     mitad = n // 2
     
@@ -39,10 +30,9 @@ def mediana (nums):
     
 
 # Moda
-
 def moda (nums):
 
-    diccionario = {}
+    diccionario = {} 
 
     for n in nums:
         diccionario[n] = 0
@@ -76,14 +66,6 @@ elif opcion == 2:
 elif opcion == 3:
     moda_resultado, repeticiones = moda(nums)
     print("La moda es:", moda_resultado)
-    print("¿Quieres saber el número de repeticiones de cada dato? (s/n)")
-    respuesta = input().lower()
-    if respuesta == 's':
-        for numero, rep in repeticiones.items():
-            print(f"El número {numero} se repite {rep} veces.")
-    elif respuesta == 'n':
-        print("De acuerdo, no mostraré las repeticiones.")
-    
+    print("Repeticiones de cada número:", repeticiones)
 else:
     print("Porfavor ingresa una opción válida.")
-
