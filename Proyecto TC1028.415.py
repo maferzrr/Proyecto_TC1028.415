@@ -1,71 +1,79 @@
-# Media Aritmética y Mediana y Moda
+# Media Aritmética, Mediana y Moda con listas anidadas
 
-nums = [] #LISTA VACÍA PARA ALMACENAR LOS NÚMEROS
+# Lista principal para almacenar sublistas de números
+nums = []
 
-# CICLO WHILE PARA CANTIDAD INDEFINIDA DE DATOS
-entrada = input("Escribe un número o 'fin': ")
-while entrada.lower() != "fin": # Función ".lower()" coloca todos los caracteres en minúscula
-    try:
-        nums.append(float(entrada)) # ".append()" agrega datos al final de la lista
-    except:
-        print("Número inválido.")
-    entrada = input("Escribe un número o 'fin': ") 
+# Entrada de datos
+entrada = input("Escribe números separados por comas o 'fin': ")
+while entrada.lower() != "fin":
+    sublista = []
+    partes = entrada.split(",")  # Divide la entrada por comas
+    for parte in partes:
+        parte = parte.strip()  # Elimina espacios
+        try:
+            sublista.append(float(parte))  # Convierte a número
+        except:
+            print(f"Valor inválido: {parte}")
+    if sublista:
+        nums.append(sublista)  # Agrega la sublista
+    entrada = input("Escribe números separados por comas o 'fin': ")
 
-# Media Aritmética
+# Función para aplanar la lista anidada
+def aplanar(lista):
+    resultado = []
+    for sublista in lista:
+        for elemento in sublista:
+            resultado.append(elemento)
+    return resultado
 
-def media (nums):
-    return sum(nums) / len(nums) # "len()" longitud de la lista
+# Función para calcular la media aritmética
+def media(nums):
+    return sum(nums) / len(nums)
 
-# Mediana
-
-def mediana (nums):
-    ordenados = sorted(nums) # "sorted()" acomodar en orden los elementos en la lista
+# Función para calcular la mediana
+def mediana(nums):
+    ordenados = sorted(nums)
     n = len(ordenados)
     mitad = n // 2
-    
     if n % 2 == 0:
         return (ordenados[mitad - 1] + ordenados[mitad]) / 2
     else:
         return ordenados[mitad]
-    
 
-# Moda
-def moda (nums):
-
-    diccionario = {} 
-
+# Función para calcular la moda
+def moda(nums):
+    diccionario = {}
     for n in nums:
-        diccionario[n] = 0
-
-    for n in nums:
-        diccionario[n] = diccionario[n] + 1
-
+        if n in diccionario:
+            diccionario[n] += 1
+        else:
+            diccionario[n] = 1
     max_valor = nums[0]
     max_repeticiones = diccionario[max_valor]
-
     for llave in diccionario:
         if diccionario[llave] > max_repeticiones:
             max_repeticiones = diccionario[llave]
             max_valor = llave
-
     return max_valor, diccionario
-    
-#Menú opciones
 
-print("Ingresa la opción que deseas realizar:")
-print("1. Calcular media aritmética:")
-print("2. Calcular mediana:")
-print("3. Calcular moda:")
+# Aplanar la lista antes de calcular
+numeros = aplanar(nums)
 
-opcion = int(input())
+# Menú de opciones
+print("\nIngresa la opción que deseas realizar:")
+print("1. Calcular media aritmética")
+print("2. Calcular mediana")
+print("3. Calcular moda")
 
-if opcion == 1:
-    print("La media aritmética es:", "%.1f" % media(nums))
-elif opcion == 2:
-    print("La mediana es:", "%.1f" % mediana(nums))
-elif opcion == 3:
-    moda_resultado, repeticiones = moda(nums)
+opcion = input("Opción: ")
+
+if opcion == "1":
+    print("La media aritmética es:", "%.1f" % media(numeros))
+elif opcion == "2":
+    print("La mediana es:", "%.1f" % mediana(numeros))
+elif opcion == "3":
+    moda_resultado, repeticiones = moda(numeros)
     print("La moda es:", moda_resultado)
     print("Repeticiones de cada número:", repeticiones)
 else:
-    print("Porfavor ingresa una opción válida.")
+    print("Por favor ingresa una opción válida.")
