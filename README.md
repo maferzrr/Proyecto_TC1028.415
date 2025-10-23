@@ -66,18 +66,18 @@ Referencias:
 En este proyecto, el módulo sys se utiliza para terminar la ejecución del programa de forma segura cuando se detectan errores en la entrada del usuario. Por ejemplo, si el usuario introduce un valor no numérico o deja una entrada vacía (como una coma final sin número), el programa muestra un mensaje de advertencia y luego llama a sys.exit() para detener el flujo y evitar cálculos incorrectos.
 Este enfoque permite mantener la integridad del programa y ofrece una experiencia más controlada para el usuario.
 
+Referencias:
+- https://docs.python.org/3/library/sys.html
+
 #### Módulo time
 Esta calculadora utiliza el módulo estándar time de Python, no para la lógica de cálculo en sí, sino para la medición del rendimiento y la eficiencia de los algoritmos de las medidas de tendencia central.
+
+Referencias:
+- https://www.swhosting.com/es/blog/python-funcion-sleep
 
 ------------
 
 #### Instrucciones
+
 Descargar el código y correr en terminal o IDE de su preferencia.
-
-
-
-
-
-
-
-
+[Proyecto_TC1028.415](http://https://github.com/maferzrr/Proyecto_TC1028.415/blob/main/Proyecto%20TC1028.415.py "Proyecto_TC1028.415")
