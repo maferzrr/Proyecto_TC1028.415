@@ -62,11 +62,11 @@ Referencias:
 ------------
 ### Módulo utilizado
 
-##### Módulo sys
+#### Módulo sys
 En este proyecto, el módulo sys se utiliza para terminar la ejecución del programa de forma segura cuando se detectan errores en la entrada del usuario. Por ejemplo, si el usuario introduce un valor no numérico o deja una entrada vacía (como una coma final sin número), el programa muestra un mensaje de advertencia y luego llama a sys.exit() para detener el flujo y evitar cálculos incorrectos.
 Este enfoque permite mantener la integridad del programa y ofrece una experiencia más controlada para el usuario.
 
-##### Módulo time
+#### Módulo time
 Esta calculadora utiliza el módulo estándar time de Python, no para la lógica de cálculo en sí, sino para la medición del rendimiento y la eficiencia de los algoritmos de las medidas de tendencia central.
 
 ------------
