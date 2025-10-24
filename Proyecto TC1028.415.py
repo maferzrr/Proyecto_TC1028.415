@@ -17,12 +17,15 @@ import time
 def media(nums):
 
     """
-    Pasando como parámetro la lista "nums"
-    Utiliza:
-    sum: para sumar los números en la lista
-    len: cuenta todos los elementos en la lista
-    Se dividen entre ellos.
+    Calcula la media aritmética de una lista.
+
+    Parámetros:
+    lista: nums = []
+
+    Retorna: 
+    float: la media calculada.
     """
+
     return sum(nums) / len(nums)
 
 
@@ -30,12 +33,15 @@ def media(nums):
 def mediana(nums):
 
     """
-    Pasando como parámetro la lista "nums"
-    Utiliza:
-    sorted: para odenar los números de menor a mayor.
-    y len.
-    If para verificar si la lista tiene números par o impar.
+    Calcula la mediana de una lista.
+
+    Parámetros:
+    lista: nums = []
+
+    Retorna: 
+    float: la mediana calculada.
     """
+
     ordenados = sorted(nums)
     n = len(ordenados)
     mitad = n // 2
@@ -48,15 +54,62 @@ def mediana(nums):
 def moda(nums):
 
     """
-    El diccionario almacena los datos de la lista.
-    Ciclos for, iteran en el diccionario para comprobar los elementos.
-    Compreuban la mayor cantidad de repeticiones de un elemento.
+    Calcula la moda de una lista.
+
+    Parámetros:
+    lista: nums = []
+
+    Retorna: 
+    float: la moda calculada.
+    int: diccionario con repeticiones de cada número.
+    
     """
+
     diccionario = {}
     for n in nums:
-        diccionario[n] = diccionario.get(n, 0) + 1
-    max_valor = max(diccionario, key=diccionario.get)
+        if n in diccionario:
+            diccionario[n] += 1
+        else:
+            diccionario[n] = 1
+    max_valor = nums[0]
+    max_repeticiones = diccionario[max_valor]
+    for llave in diccionario:
+        if diccionario[llave] > max_repeticiones:
+            max_repeticiones = diccionario[llave]
+            max_valor = llave
     return max_valor, diccionario
+
+# ========== Funciones auxiliares ==========
+
+def verify_int(cantidad_datos_str):
+
+    """
+    Verifica que la entrada cumpla con lo requisitos:
+    - Positivo
+    - Mayor a 0
+    - Cantidad entera
+
+    Parámetros:
+    input = cantidad_datos _str
+
+    Si cumple con las condiciones:
+    Retorna 
+    int = número entero de listas
+
+    Si no cumple con las condiciones:
+    Retorna 
+    int = -1
+    
+    """
+
+    try:
+        num = int(cantidad_datos_str)
+    except ValueError:
+        return -1
+    if num <= 0:
+        return -1
+    else:
+        return num
 
 # ========== Main ==========
 
@@ -75,7 +128,14 @@ while continuar.upper() == "S":
     # Entrada de datos
     listas_datos = []
     print("\n¿Cuántas listas deseas ingresar?")
-    cantidad_datos = int(input("Listas:"))
+    cantidad_datos_str = input("Listas:")
+    cantidad_datos = verify_int(cantidad_datos_str)
+    while cantidad_datos == -1:
+        print("Entrada inválida")
+        cantidad_datos_str = input("Listas:")
+        cantidad_datos = verify_int(cantidad_datos_str)
+ 
+
     for i in range(cantidad_datos):
         nums = []
         print("\nEscribe tus números separados por comas:")
