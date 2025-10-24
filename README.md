@@ -80,4 +80,3 @@ Referencias:
 #### Instrucciones
 
 Descargar el código y correr en terminal o IDE de su preferencia.
-[Proyecto_TC1028.415](http://https://github.com/maferzrr/Proyecto_TC1028.415/blob/main/Proyecto%20TC1028.415.py "Proyecto_TC1028.415")
