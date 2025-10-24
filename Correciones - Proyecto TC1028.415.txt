@@ -1,0 +1,116 @@
+Correciones - Proyecto TC1028.415
+
+María Fernanda Zetina Reyes
+A01709799
+
+==================== Correción 01 ====================
+
+Sub-Competencia:
+	componente: Separa el código en funciones pequeñas reusables, haciendo uso correcto de paso por parametros y return (avance 3)
+
+Error original:
+El profesor me pidió que reprogramara una función que no estaba clara sobre las listas anidadas, eliminé la función y la cambié por una función de verificación.
+
+# Función para aplanar la lista anidada
+def aplanar(lista):
+    resultado = []
+    for sublista in lista:
+        for elemento in sublista:
+            resultado.append(elemento)
+    return resultado
+
+Cambio realizado:
+
+def verify_int(cantidad_datos_str):
+
+    """
+    Verifica que la entrada cumpla con lo requisitos:
+    - Positivo
+    - Mayor a 0
+    - Cantidad entera
+
+    Parámetros:
+    input = cantidad_datos _str
+
+    Si cumple con las condiciones:
+    Retorna 
+    int = número entero de listas
+
+    Si no cumple con las condiciones:
+    Retorna 
+    int = -1
+    
+    """
+
+    try:
+        num = int(cantidad_datos_str)
+    except ValueError:
+        return -1
+    if num <= 0:
+        return -1
+    else:
+        return num
+
+Líneas de código donde se ve la corrección: 84 a 112
+
+==================== Correción 02 ====================
+
+Sub-Competencia: El estilo cumple con las normas y estándares enunciadas en el documento de PEP 8  (Revis[on y Final)
+
+Error original:
+El profesor pidió comentarios dentro de las funciones en estilo PEP 8
+
+# Función para aplanar la lista anidada
+def aplanar(lista):
+    resultado = []
+    for sublista in lista:
+        for elemento in sublista:
+            resultado.append(elemento)
+    return resultado
+
+# Función para calcular la media aritmética
+def media(nums):
+    return sum(nums) / len(nums)
+
+
+Cambio realizado:
+
+def media(nums):
+
+    """
+    Calcula la media aritmética de una lista.
+
+    Parámetros:
+    lista: nums = []
+
+    Retorna: 
+    float: la media calculada.
+    """
+
+    return sum(nums) / len(nums)
+
+
+
+def mediana(nums):
+
+    """
+    Calcula la mediana de una lista.
+
+    Parámetros:
+    lista: nums = []
+
+    Retorna: 
+    float: la mediana calculada.
+    """
+
+    ordenados = sorted(nums)
+    n = len(ordenados)
+    mitad = n // 2
+    if n % 2 == 0:
+        return (ordenados[mitad - 1] + ordenados[mitad]) / 2
+    else:
+        return ordenados[mitad]
+
+Líneas de código donde se ve la corrección: 17 a 112
+
+
