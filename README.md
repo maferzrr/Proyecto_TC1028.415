@@ -70,7 +70,8 @@ Referencias:
 - https://docs.python.org/3/library/sys.html
 
 #### Módulo time
-Esta calculadora utiliza el módulo estándar time de Python, no para la lógica de cálculo en sí, sino para la medición del rendimiento y la eficiencia de los algoritmos de las medidas de tendencia central.
+El módulo time se utiliza principalmente para mejorar la interacción visual con el usuario.
+Mediante la función time.sleep(), el programa introduce pequeñas pausas entre mensajes, generando una experiencia más fluida y amigable.
 
 Referencias:
 - https://www.swhosting.com/es/blog/python-funcion-sleep
@@ -79,4 +80,22 @@ Referencias:
 
 #### Instrucciones
 
-Descargar el código y correr en terminal o IDE de su preferencia.
+1. Descarga el código o clona el repositorio.
+
+2. Ejecuta el programa en tu terminal o en un IDE (como VS Code, PyCharm o Thonny).
+
+3. Ingresa los datos según las instrucciones del programa.
+
+4. Elige la operación que desees realizar: Media, Mediana o Moda.
+
+5. Visualiza los resultados calculados.
+
+------------
+
+#### Autor
+
+María Fernanda Zetina Reyes
+
+Matrícula: A01709799
+
+Materia: TC1028.415
